@@ -15,11 +15,17 @@ vim.opt.autoindent = true             -- automatically indent new lines
 vim.opt.number = true                 -- display line numbers
 vim.opt.wildmode = { 'longest', 'list' } -- enable bash-like tab completion
 vim.opt.colorcolumn = '100'           -- 100-column indicator
+vim.opt.cursorline = true            -- Highlight current cursor line
+
 vim.cmd('filetype plugin indent on')  -- enable filetype-specific plugins and indentation
 
 -- Replace <ESC> with 'jk' and 'kj'
 vim.api.nvim_set_keymap('i', 'jk', '<ESC>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', 'kj', '<ESC>', { noremap = true, silent = true })
+
+-- Enable relative line numbers
+vim.opt.relativenumber = true
+vim.cmd('set nu rnu')                -- Alternative syntax for line numbers
 
 -- Packer setup
 return require('packer').startup(function(use)  -- Pass `use` explicitly
